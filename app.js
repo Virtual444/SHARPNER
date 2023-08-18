@@ -6,6 +6,8 @@ const app = express();
 
 const adminRoutes = require('./routes/admin');
 const shopRoutes = require('./routes/shop');
+const errorController = require('./controllers/error');
+const formController = require('./controllers/formController');
 
 app.use(bodyParser.urlencoded({ extended: false }));
 
@@ -14,16 +16,10 @@ app.use(express.static(path.join(__dirname, 'views')));
 app.use('/admin', adminRoutes);
 app.use(shopRoutes);
 
-// Serve static files from the 'views' directory
 
-// Route for the contact form
-app.get('/contactus', (req, res) => {
-    res.sendFile(path.join(__dirname, 'views', 'contactus.html'));
-});
+app.get('/contactus', formController.getContactus);
 
-app.get('/success', (req,res) =>{
-    res.sendFile(path.join(__dirname, 'views', 'success.html'));
-});
+app.get('/success', formController.postSuccess);
 // Route for the success page
 app.post('/success', (req, res) => {
     // Handle form submission here (store data, etc.)
@@ -32,8 +28,6 @@ app.post('/success', (req, res) => {
 });
 
 // Route for handling "Page not found" errors
-app.use((req, res, next) => {
-    res.status(404).sendFile(path.join(__dirname, 'views', '404.html'));
-});
+app.use(errorController.get404);
 
 app.listen(3000);
