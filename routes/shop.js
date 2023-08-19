@@ -1,12 +1,14 @@
-const path = require('path');
-
+// routes/shop.js
 const express = require('express');
+const path = require('path');
+const Product = require('../models/product');
 
 const router = express.Router();
 
 router.get('/', (req, res, next) => {
-  res.sendFile(path.join(__dirname, '..', 'views', 'shop.html'));
+  Product.fetchAll((products) => {
+    res.sendFile(path.join(__dirname, '..', 'views', 'shop.html'));
+  });
 });
 
-module.exports = router; 
- 
+module.exports = router;
