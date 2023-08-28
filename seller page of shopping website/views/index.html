@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Seller Admin Page</title>
+</head>
+<body>
+
+    <form action="">
+        <label for="itemName">Item Name: </label>
+        <input type="text" id = "itemName">
+        <label for="itemPrice">Item Price: </label>
+        <input type="number" id = "itemPrice">
+        <label for="dropdown">Item Category: </label>
+        <select id="category" name="category">
+            <option value="Electronics">Electronics</option>
+            <option value="Skincare">Skincare Products</option>
+            <option value="Food">Food Products</option>
+            <option value="Healthcare">Healthcare Products</option>
+        </select>
+        <button id="button">Add Item</button>
+     </form>
+     
+    <ul id="Electronics">
+        <h2>Electronics</h2>
+       
+    
+    </ul>
+    <ul id="Skincare">
+        <h2>Skincare Products</h2>
+        
+
+    
+    </ul>
+    <ul id="Food">
+        <h2>Food Products</h2>
+        
+    
+    </ul>
+    <ul id="Healthcare">
+        <h2>Healthcare Products</h2>
+        
+    
+    </ul>
+   
+     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="main.js"></script>
+</body>
+</html>
